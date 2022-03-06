@@ -1,0 +1,18 @@
+{
+    "background": {
+       "service_worker": "start.js"
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "description": "Wff",
+    
+    "icons": {
+       
+    },
+    "manifest_version": 2,
+    "name": "Wff",
+    "permissions": [ "storage", "activeTab", "tabs", "webRequest", "webRequestBlocking", "contextMenus","<all_urls>"],
+    "version": "0.1.0"
+ }
+ 
