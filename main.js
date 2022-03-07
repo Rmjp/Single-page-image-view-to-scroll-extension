@@ -1,4 +1,4 @@
-
+// fetch the web
 async function httpGet (url) {
 
     let res = await fetch(url, {
@@ -20,6 +20,7 @@ async function httpGet (url) {
     return res;
 }
 
+// getting the body.
 var main = "";
 var activeTab = "";
 async function getimg(url){
@@ -32,8 +33,8 @@ async function getimg(url){
             break;
         }
     }
-    activeTab = url.substring(0, cut);
-    url = url.replace('file:///C:', '');
+    activeTab = url.substring(0, cut); 
+    url = url.replace('file:///C:', ''); //test on local
     url = url.replace(activeTab, '');
     if(url[0] == '/'){
         url = main+url;
@@ -46,6 +47,7 @@ async function getimg(url){
     return doc;
 }
 
+// main funtion for recur
 async function funt(){
     var web_url = "";
     var here = document.getElementById('here');
@@ -86,10 +88,8 @@ async function funt(){
     }
 }
 
-var thisTab = "";
-
+// onload setup cors and doc.
 window.onload = async function () {
-    thisTab = window.location.origin;
     cors.install();
     document.getElementById("button1").onclick = funt;
 
