@@ -1,14 +1,25 @@
 {
-    "browser_action": {
-        "default_popup": "popup.html"
+    "background": {
+        "service_worker": "background.js"
     },
     "description": "Wff",
     "icons": {
        
     },
-    "manifest_version": 2,
+    "action": {
+        
+    },
+    "manifest_version": 3,
     "name": "Wff",
-    "permissions": [ "storage", "activeTab", "tabs", "webRequest", "webRequestBlocking", "contextMenus","<all_urls>"],
-    "version": "0.1.0"
+    "web_accessible_resources": [
+        {
+          "resources": [ "WFF.html"],
+          "matches": [ "\u003Call_urls>" ]
+        }
+      ],
+    "host_permissions": ["\u003Call_urls>"],
+    "incognito":"split",
+    "permissions": ["scripting", "storage", "activeTab", "tabs", "webRequest", "declarativeNetRequest", "contextMenus"],
+    "version": "0.1.1"
  }
  
