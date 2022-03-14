@@ -1,34 +1,25 @@
-// var container;
-// var activeTab;
-
-// function disableclick(e){
-//     e.preventDefault();
-// }
-
-// function getidorclass(e){
-//     var t = e.target;
-//     container = (e.id != null)? e.id : e.classname;
-//     document.removeEventListener('click', disableclick, false);
-
-//     url = 'WFF.html?name=' + container + '&ad=id' + '&url=' + activeTab;
-//     window.open(url)
-// };
+// get extension url
 let url = this.serviceWorker.scriptURL;
 url = url.replace("background.js", '');
 
+// ingected funtion on current tab when click icon
 function injected(urlinit){
     var container;
     var activeTab;
 
+    // current url
     activeTab = document.location.href;
 
+    // disable default click command
     function disableclick(e){
         e.preventDefault();
     };
 
+    // when click
     function getidorclass(e){
         var t = e.target;
 
+        // loop until found img and link
         let chk_img = 0, chk_a = 0;
         while(chk_img == 0 || chk_a == 0){
             let x = t.getElementsByTagName('img');
@@ -38,10 +29,11 @@ function injected(urlinit){
             if(chk_img == 0 || chk_a == 0) t = t.parentElement;
         }
 
-        container = (t.id != null)? t.id : t.className;
+        // until has id
+        container = t.id;
         while(container == null){
             t = t.parentElement;
-            container = (t.id != null)? t.id : t.className;
+            container = t.id;
         }
 
         document.removeEventListener('mousedown', getidorclass, false);
@@ -53,6 +45,7 @@ function injected(urlinit){
     document.addEventListener('click', disableclick, false);
 }
 
+// add action when click icon
 chrome.action.onClicked.addListener((tab) => {
     if(!tab.url.includes("extension://")) {
         chrome.scripting.executeScript({

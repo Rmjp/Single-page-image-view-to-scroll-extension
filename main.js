@@ -1,22 +1,7 @@
 // fetch the web
 async function httpGet (url) {
-
-    let res = await fetch(url, {
-    "headers": {
-        "accept": "*/*",
-        "accept-language": "th,en-US;q=0.9,en;q=0.8",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "cross-site",
-        "access-control-request-headers": "access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,access-control-expose-headers",
-        "access-control-request-method": "OPTIONS"
-    },
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": null,
-    "method": "GET",
-    "mode": "cors",
-    "credentials": "omit"
-    });
+    // add header
+    let res = await fetch(url, {});
     return res;
 }
 
@@ -68,6 +53,7 @@ async function funt(){
     var div_id = document.getElementsByClassName('div_scc')[0].value;
     if(div_id != '') id_img = div_id;
     
+    // loop until error
     let doc = getimg(web_url);
     let i = (await doc).getElementById(id_img);
     if(i == null) i = (await doc).getElementsByClassName(id_img)[0];
