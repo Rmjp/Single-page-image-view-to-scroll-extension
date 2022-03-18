@@ -1,5 +1,5 @@
 # WFF
-An extension that turns a single page gallery to scroll.
+An extension that turns a single page image viwe to scroll.
 
 ![example](https://i.imgur.com/1rWayHC.jpeg)
 
