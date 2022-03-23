@@ -17,6 +17,9 @@ function injected(urlinit){
 
     // when click
     function getidorclass(e){
+
+        document.body.style.cursor = "";
+
         var t = e.target;
 
         // loop until found img and link
@@ -39,8 +42,10 @@ function injected(urlinit){
         document.removeEventListener('mousedown', getidorclass, false);
         document.removeEventListener('click', disableclick, false);
         url = urlinit + 'WFF.html?name=' + container + '&ad=id' + '&url=' + activeTab;
-        window.open(url)
+        window.open(url);
     };
+
+    document.body.style.cursor = "crosshair";
     document.addEventListener('mousedown', getidorclass, false);
     document.addEventListener('click', disableclick, false);
 }
