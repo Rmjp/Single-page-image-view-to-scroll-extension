@@ -10,7 +10,7 @@
         
     },
     "manifest_version": 3,
-    "name": "Wff",
+    "name": "Single-page-image-view-to-scroll-extension",
     "web_accessible_resources": [
         {
           "resources": [ "WFF.html"],
